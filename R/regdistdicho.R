@@ -48,17 +48,17 @@
 #' ## (data from Peacock et al. 1995)
 #' mod_smoke <- lm(birthwt ~ smoke + gest, data = bwsmoke)
 #' regdistdicho(mod = mod_smoke, group_var = 'smoke', cp = 2500, tail = 'lower')
-## Ensure that package lsmeans (and nlme for multilevel regression) is installed
+## Ensure that package emmeans (and nlme for multilevel regression) is installed
 
 
 #'@export
 regdistdicho <- function(mod, group_var, cp = 0, tail = c("lower", "upper"), conf.level = 0.95, dist = c("normal", "sk_normal", "gamma"), alpha=1) {
   
-    ### Checking if lsmeans is installed
-    if (!is.element("lsmeans", utils::installed.packages()[,1])) {
-      utils::install.packages("lsmeans")
+    ### Checking if emmeans is installed
+    if (!is.element("emmeans", utils::installed.packages()[,1])) {
+      utils::install.packages("emmeans")
     }
-    base::require("lsmeans")
+    base::require("emmeans")
     ###
 
     
@@ -102,9 +102,9 @@ regdistdicho <- function(mod, group_var, cp = 0, tail = c("lower", "upper"), con
           rse <- summary(mod)$sigma
         
           # Marginal Effects
-          me <- lsmeans::lsmeans(mod, group_var)
-          me.1 <- summary(me)$lsmean[i]
-          me.2 <- summary(me)$lsmean[refnumber]
+          me <- emmeans::emmeans(mod, group_var)
+          me.1 <- summary(me)$emmean[i]
+          me.2 <- summary(me)$emmean[refnumber]
         
           # No. of observations
           n.1 <- table(mod$model[, group_var])[i]
@@ -128,9 +128,9 @@ regdistdicho <- function(mod, group_var, cp = 0, tail = c("lower", "upper"), con
     
     
         # Marginal Effects
-        me <- lsmeans::lsmeans(mod, group_var)
-        me.1 <- summary(me)$lsmean[c]
-        me.2 <- summary(me)$lsmean[refnumber]
+        me <- emmeans::emmeans(mod, group_var)
+        me.1 <- summary(me)$emmean[c]
+        me.2 <- summary(me)$emmean[refnumber]
     
         # No. of observations
         n.1 <- table(mod$model[, group_var])[c]
@@ -193,9 +193,9 @@ regdistdicho <- function(mod, group_var, cp = 0, tail = c("lower", "upper"), con
           rse <- sqrt(as.numeric(nlme::VarCorr(mod)[1,1])+as.numeric(nlme::VarCorr(mod)[2,1]))
           
           # Marginal Effects
-          me <- lsmeans::lsmeans(mod, group_var)
-          me.1 <- summary(me)$lsmean[i]
-          me.2 <- summary(me)$lsmean[refnumber]
+          me <- emmeans::emmeans(mod, group_var)
+          me.1 <- summary(me)$emmean[i]
+          me.2 <- summary(me)$emmean[refnumber]
           
           # No. of observations
           n.1 <- table(mod$data[, group_var])[i]
@@ -219,9 +219,9 @@ regdistdicho <- function(mod, group_var, cp = 0, tail = c("lower", "upper"), con
         
         
         # Marginal Effects
-        me <- lsmeans::lsmeans(mod, group_var)
-        me.1 <- summary(me)$lsmean[c]
-        me.2 <- summary(me)$lsmean[refnumber]
+        me <- emmeans::emmeans(mod, group_var)
+        me.1 <- summary(me)$emmean[c]
+        me.2 <- summary(me)$emmean[refnumber]
         
         # No. of observations
         n.1 <- table(mod$data[, group_var])[c]

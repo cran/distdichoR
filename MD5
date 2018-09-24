@@ -1,4 +1,4 @@
-915765e0fa8e060e3b08aee111b59083 *DESCRIPTION
+d0346469549825ff439defaf8351bb1f *DESCRIPTION
 c048bda46c31dea51759a71ec05fe682 *LICENSE
 0d6481e9e46c49ff56f1bcc35706b94d *NAMESPACE
 78158b63225d3e346e5407de18070711 *R/bmi.R
@@ -10,7 +10,7 @@ ec14d7d5e8a5560d57fe50641c5b4339 *R/distdicho.R
 eb2960cc89ae82d311a03ae7323b17a4 *R/distdichoi.R
 00c50e2f3045b51b424b0529fc38bdcf *R/distdichoigen.R
 9039ce166fdf41b085dd23660eb074ea *R/print.distdicho.R
-982de7d11ecc9e388b6ac8a12be7bb01 *R/regdistdicho.R
+44094cc97b2873fae983f89a6f2bbbd2 *R/regdistdicho.R
 6ac66fb2d704cf3712d6af21a19a37fc *data/bmi.rda
 5b5aeac48f5303b73cc4ce1d6ac9e5e4 *data/bmi2.rda
 3f0ffd5ccf76bfad569ed08db76d4a27 *data/bwsmoke.rda
